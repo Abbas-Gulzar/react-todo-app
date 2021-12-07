@@ -27,6 +27,7 @@ class TodoContainer extends React.Component {
             <div>
                 <Header/>
                 <TodosList todos={this.state.todos} />
+                <TodoItem todos={this.state.todos} name = "Abbas"/>
             </div>
         );
     }

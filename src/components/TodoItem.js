@@ -1,14 +1,13 @@
 import React from "react"
 
-class TodoItem extends React.Component {
-    render() {
+function TodoItem ({name}) {
         return (
             <li>
                 <input type="checkbox" />
-                {this.props.todo.title}
+                {/* {this.props.todo.title} */}
+                {name}
             </li>
         )
     }
-}
 
 export default TodoItem
