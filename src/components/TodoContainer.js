@@ -18,16 +18,15 @@ class TodoContainer extends React.Component {
             {
                 id: 3,
                 title: "Deploy to live server",
-                completed: false
+                completed: true
             }
         ]
     };
     render() {
         return (
             <div>
-                <Header/>
+                <Header />
                 <TodosList todos={this.state.todos} />
-                <TodoItem todos={this.state.todos} name = "Abbas"/>
             </div>
         );
     }
