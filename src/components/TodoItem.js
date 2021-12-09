@@ -2,6 +2,19 @@ import React from "react"
 import styles from "./TodoItem.module.css"
 class TodoItem extends React.Component {
 
+    state = {
+        editing: false,
+    }
+    handleEditing = () => {
+        this.setState({
+            editing: true,
+        })
+    }
+    handleUpdatedDone = event => {
+        if (event.key === "Enter") {
+            this.setState({ editing: false })
+          }
+      }
     render() {
         const completedStyle = {
             fontStyle: "italic",
@@ -10,8 +23,24 @@ class TodoItem extends React.Component {
             textDecoration: "line-through",
         }
         const { completed, id, title } = this.props.todo
+        let viewMode = {}
+        let editMode = {}
+
+        if (this.state.editing) {
+            viewMode.display = "none"
+        } else {
+            editMode.display = "none"
+        }
         return (
-            <li className={styles.item}>
+            <li className={styles.item} >
+                <div onDoubleClick={this.handleEditing} style={viewMode}>...</div>
+                <input type="text" style={editMode} 
+                style={editMode} 
+                className={styles.textInput } 
+                onChange={e => {
+                    this.props.setUpdate(e.target.value, id)}} 
+                    onKeyDown={this.handleUpdatedDone}/>
+                    
                 {
                     <input type="checkbox"
                         className={styles.checkbox}
@@ -19,6 +48,7 @@ class TodoItem extends React.Component {
                         onChange={() => this.props.handleChangeProps(id)}
                     />
                 }
+
                 <button
                     onClick={() =>
                         this.props.deleteTodoProps(id)}>
