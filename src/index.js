@@ -9,9 +9,9 @@ import "./functionBased/App.css"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router2>
+    <Router basename={process.env.PUBLIC_URL}>
       <TodoContainer />
-    </Router2>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 )
