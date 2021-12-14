@@ -130,13 +130,6 @@ a {
   margin-right: 15px;
 }
 
-.about__list a {
-  color: #9f9f9f;
-  text-transform: capitalize;
-  padding: 20px 0;
-  font-weight: 600;
-}
-
 .about__list a:hover {
   color: #000;
 }
